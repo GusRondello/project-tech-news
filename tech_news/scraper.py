@@ -20,13 +20,13 @@ def fetch(url):
 
 # Requisito 2
 def scrape_updates(html_content):
-    selector = Selector(text=html_content)
+    selector = Selector(html_content)
     return selector.css("a.cs-overlay-link::attr(href)").getall() or []
 
 
 # Requisito 3
 def scrape_next_page_link(html_content):
-    selector = Selector(text=html_content)
+    selector = Selector(html_content)
 
     next_page = selector.css("a.next.page-numbers::attr(href)").get()
     if next_page:
